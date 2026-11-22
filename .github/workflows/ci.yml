@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  slicer-ich-triage:
+    name: slicer-ich-triage (pytest)
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Windows is where Slicer runs for the team; 3.12 is the Python of Slicer 5.12.
+        os: [ubuntu-latest, windows-latest]
+    defaults:
+      run:
+        working-directory: services/slicer-ich-triage
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "pytest>=8,<9"
+      - run: python -m pytest
