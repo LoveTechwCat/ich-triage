@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.coverage
+htmlcov/
+
+# Secrets and local settings
+.env
+*.env
+!*.env.example
+secrets.env
+*.pem
+*.key
+
+# Data and models (never in git)
+data/
+*.nii
+*.nii.gz
+*.nrrd
+*.dcm
+*.pt
+*.pth
+*.ts
+*.onnx
+*.ckpt
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json
