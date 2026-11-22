@@ -48,8 +48,8 @@ $ModuleDir = (Resolve-Path (Join-Path $PSScriptRoot "..\$ModuleName")).Path
 function Find-SlicerExe {
     if ($SlicerExe) { return $SlicerExe }
     if ($env:SLICER_EXE) { return $env:SLICER_EXE }
-    # Default per-user location of the official installer (NSIS, "NA-MIC" folder).
-    return Join-Path $env:LOCALAPPDATA "NA-MIC\Slicer $SlicerVersion\Slicer.exe"
+    # Where the official installer puts it by default (checked with 5.12.4).
+    return Join-Path $env:LOCALAPPDATA "slicer.org\3D Slicer $SlicerVersion\Slicer.exe"
 }
 
 function Format-Argument([string]$Value) {
