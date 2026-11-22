@@ -6,9 +6,9 @@ One Docker Compose file that runs the whole system on a single machine, for deve
 
 ## Status
 
-Not started. Today the closest thing is `ich-architecture/poc/viewer/docker-compose.yml` (OHIF PoC with a simulated AI) and the "local test on one machine" section of the staging README.
+Not started. Today the closest thing is the "local test on one machine" section of the staging README in ich-architecture.
 
 ## Next steps
 
 - Reuse the staging images with one shared network and published ports on localhost.
-- Document the 3D Slicer setup on Windows against this stack, including WSL2 networking for MONAI Label.
+- Document the 3D Slicer setup on Windows against this stack, including WSL2 networking for MONAI Label. Slicer installation and the ICH Triage dev launcher are in [`services/slicer-ich-triage`](../../services/slicer-ich-triage).

@@ -6,7 +6,7 @@ Turns a stable CT series into AI results. For each job it reads the series from 
 
 ## Architecture block
 
-AI inference layer, VLAN 30 (the "task orchestrator" in the report). Holds no PACS credentials. Design: [Flow 2](https://jikei25.github.io/ich-architecture/index.html#flow-triage), [D11](https://jikei25.github.io/ich-architecture/decisions.html#d11).
+AI inference layer, VLAN 30 (the "task orchestrator" in the report). Holds no PACS credentials. Design: [Flow 2](https://jikei25.github.io/ich-architecture/index.html#flow-triage), [D11](https://github.com/jikei25/ich-architecture/blob/docs/slicer-monai-architecture/decisions.html).
 
 ## Interfaces
 
@@ -27,6 +27,6 @@ In staging this runs as the `ai_bridge.py` plugin inside Orthanc (`ich-architect
 
 ## Next steps
 
-- Call the MONAI Label server (option A in the [contract](https://jikei25.github.io/ich-architecture/slicer.html#contract)).
+- Call the MONAI Label server (option A in the [contract](https://github.com/jikei25/ich-architecture/blob/docs/slicer-monai-architecture/slicer.html), slicer.html section 11).
 - Build one SEG segment per label 1–5 and the per-subtype volumes in the SR (the AI team supplies the label table).
 - Deduplicate jobs per Study Instance UID when several gateway nodes raise the same event.
