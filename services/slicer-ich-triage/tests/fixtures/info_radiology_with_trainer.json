@@ -1,0 +1,44 @@
+{
+  "name": "MONAILabel - Radiology (0.8.6)",
+  "description": "DeepLearning models for radiology",
+  "version": "0.8.6",
+  "labels": ["spleen"],
+  "models": {
+    "segmentation_spleen": {
+      "type": "segmentation",
+      "labels": {"spleen": 1},
+      "dimension": 3,
+      "description": "A pre-trained model for volumetric (3D) segmentation of the spleen from CT image",
+      "config": {"device": ["cuda"]}
+    }
+  },
+  "trainers": {
+    "segmentation_spleen": {
+      "description": "Train Spleen Segmentation Model",
+      "config": {
+        "name": "train_01",
+        "pretrained": true,
+        "device": ["cuda"],
+        "max_epochs": 50,
+        "early_stop_patience": -1,
+        "val_split": 0.2,
+        "train_batch_size": 1,
+        "val_batch_size": 1,
+        "multi_gpu": true,
+        "gpus": "all",
+        "dataset": ["SmartCacheDataset", "CacheDataset", "PersistentDataset", "Dataset"],
+        "dataloader": ["ThreadDataLoader", "DataLoader"],
+        "tracking": ["None", "mlflow"],
+        "tracking_uri": "",
+        "tracking_experiment_name": ""
+      }
+    }
+  },
+  "strategies": {
+    "random": {"description": "Random Strategy"},
+    "first": {"description": "Get First Sample"}
+  },
+  "scoring": {},
+  "train_stats": {"segmentation_spleen": {}},
+  "datastore": {"total": 78, "completed": 12, "label_tags": {"final": 12}}
+}

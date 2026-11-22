@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ICHTriage</class>
+ <widget class="qMRMLWidget" name="ICHTriage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>360</width>
+    <height>360</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="ctkCollapsibleButton" name="serversCollapsibleButton">
+     <property name="text">
+      <string>Servers</string>
+     </property>
+     <layout class="QFormLayout" name="serversFormLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="serverUrlLabel">
+        <property name="text">
+         <string>MONAI Label server URL:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="serverUrlLineEdit">
+        <property name="toolTip">
+         <string>Root URL of the MONAI Label server, for example http://localhost:8000. Saved in the application settings.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="pacsUrlLabel">
+        <property name="text">
+         <string>PACS DICOMweb URL:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="pacsUrlLineEdit">
+        <property name="toolTip">
+         <string>DICOMweb root of the PACS (QIDO-RS, WADO-RS). Optional; not used yet. Saved in the application settings.</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="ctkCollapsibleButton" name="connectionCollapsibleButton">
+     <property name="text">
+      <string>Connection</string>
+     </property>
+     <layout class="QVBoxLayout" name="connectionLayout">
+      <item>
+       <widget class="QPushButton" name="checkConnectionButton">
+        <property name="toolTip">
+         <string>Call GET /info/ on the MONAI Label server and show its app, models and trainers.</string>
+        </property>
+        <property name="text">
+         <string>Check connection</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="statusLabel">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="textInteractionFlags">
+         <set>Qt::TextSelectableByMouse</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPlainTextEdit" name="infoTextEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>qMRMLWidget</class>
+   <extends>QWidget</extends>
+   <header>qMRMLWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ctkCollapsibleButton</class>
+   <extends>QWidget</extends>
+   <header>ctkCollapsibleButton.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -6,7 +6,7 @@ The MONAI Label app that holds the `hemorrhage` segmentation model (a MONAI bund
 
 ## Architecture block
 
-AI inference (VLAN 30) and AI research (VLAN 40). Design: [D11](https://jikei25.github.io/ich-architecture/decisions.html#d11), [two servers](https://jikei25.github.io/ich-architecture/slicer.html#servers).
+AI inference (VLAN 30) and AI research (VLAN 40). Design: [D11](https://github.com/jikei25/ich-architecture/blob/docs/slicer-monai-architecture/decisions.html), [two servers](https://github.com/jikei25/ich-architecture/blob/docs/slicer-monai-architecture/slicer.html) (slicer.html section 12; [PR #11](https://github.com/jikei25/ich-architecture/pull/11), not merged yet).
 
 | | Inference server | Research server |
 |---|---|---|

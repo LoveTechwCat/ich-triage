@@ -6,25 +6,26 @@ Serves the radiologist's worklist with AI state: the PACS study list merged with
 
 ## Architecture block
 
-AI results database and priority flag, used by the clinical viewer. Design: [Flow 2](https://jikei25.github.io/ich-architecture/index.html#flow-triage), [viewer requirements (D10)](https://jikei25.github.io/ich-architecture/decisions.html#d10).
+AI results database and priority flag, used by the clinical viewer (3D Slicer with the ICH Triage module). Design: [Flow 2](https://jikei25.github.io/ich-architecture/index.html#flow-triage), viewer requirements in D10 ([decisions.html](https://github.com/jikei25/ich-architecture/blob/docs/slicer-monai-architecture/decisions.html) on the `docs/slicer-monai-architecture` branch, [PR #11](https://github.com/jikei25/ich-architecture/pull/11), not merged yet).
 
 ## Interfaces
 
-| Endpoint | Content |
-|---|---|
-| `GET /triage/api/studies` | Study list with AI state and priority |
-| `GET /triage/api/studies/{uid}` | One study: AI state, volume, model version |
-| `POST /triage/api/studies/{uid}/review` | `{"decision": "CONFIRMED" \| "REJECTED"}` |
-| `GET /triage/api/events` | Server-Sent Events: `result`, `ai_status` |
+To be designed. The API must cover:
+
+- the study list with AI state and priority;
+- one study: AI state, volume, model version;
+- the radiologist's decision: confirmed or rejected;
+- live events to the viewer: a new AI result, AI service status.
 
 AI states: not run, running, done and awaiting confirmation, no result. None of them may look like a negative study.
 
 ## Status
 
-PoC version in `ich-architecture/poc/viewer/py/triage_api.py`, used by both the OHIF panel and the planned 3D Slicer module.
+Not started, API to be designed.
 
 ## Next steps
 
-- Move the PoC service here and give it tests.
-- Store results in PostgreSQL instead of PoC memory.
+- Design the API (endpoints, event stream, error cases) and record it in ich-architecture.
+- Implement it here with tests.
+- Store results in PostgreSQL.
 - Check the OIDC token on every request.

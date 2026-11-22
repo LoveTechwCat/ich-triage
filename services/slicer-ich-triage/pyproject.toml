@@ -1,0 +1,7 @@
+# Test settings only. The module itself is loaded by 3D Slicer, not installed with pip.
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+pythonpath = ["ICHTriage"]
+addopts = "-ra"

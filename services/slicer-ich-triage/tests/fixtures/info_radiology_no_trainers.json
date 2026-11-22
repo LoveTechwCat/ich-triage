@@ -1,0 +1,30 @@
+{
+  "name": "MONAILabel - Radiology (0.8.6)",
+  "description": "DeepLearning models for radiology",
+  "version": "0.8.6",
+  "labels": ["spleen"],
+  "models": {
+    "segmentation_spleen": {
+      "type": "segmentation",
+      "labels": {"spleen": 1},
+      "dimension": 3,
+      "description": "A pre-trained model for volumetric (3D) segmentation of the spleen from CT image",
+      "config": {"device": ["cuda"]}
+    },
+    "Histogram+GraphCut": {
+      "type": "scribbles",
+      "labels": [],
+      "dimension": 3,
+      "description": "A post processing step with likelihood + GraphCut for Generic segmentation",
+      "config": {}
+    }
+  },
+  "trainers": {},
+  "strategies": {
+    "random": {"description": "Random Strategy"},
+    "first": {"description": "Get First Sample"}
+  },
+  "scoring": {},
+  "train_stats": {},
+  "datastore": {"total": 78, "completed": 0, "label_tags": {}}
+}

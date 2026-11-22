@@ -14,11 +14,10 @@ Simulators and data loaders for testing without hospital systems:
 
 ## Status
 
-PoC versions in ich-architecture:
-- `poc/viewer/py/his.py`, `scanner.py`, `synthetic_ct.py`;
-- `deploy/staging/tools/load_nifti.py`, `mock_ai.py`.
+- NIfTI loader and mock AI: in ich-architecture, `deploy/staging/tools/load_nifti.py` and `mock_ai.py`.
+- HIS simulator, scanner simulator, synthetic CT: not started.
 
 ## Next steps
 
-- Move them here as one Python package with a small CLI.
+- Move the NIfTI loader and the mock AI here, and write the other tools, as one Python package with a small CLI.
 - Make the mock AI speak the MONAI Label `/infer` interface, so the AI worker can switch between them with one setting.
